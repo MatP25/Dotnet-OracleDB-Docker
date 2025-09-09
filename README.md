@@ -8,7 +8,7 @@
 After initialization you can run the script to change default passwords: ```docker exec -it oracledb ./setPassword.sh oracle123```
 - enter container with: ```docker exec -it oracledb bash```
 - connect to sql as SYSTEM: ```sqlplus system/oracle123@localhost:1521/XEPDB1```
-- connect to sql as SYS sqlplus ```sys/oracle123@localhost:1521/XEPDB1 as sysdba```
+- connect to sql as SYS ```sqlplus sys/oracle123@localhost:1521/XEPDB1 as sysdba```
 
 > [!NOTE]
 > SYSTEM vs SYS: https://dba.stackexchange.com/questions/405/what-is-the-difference-between-sys-and-system-accounts-in-oracle-databases
@@ -44,9 +44,7 @@ After creating the connection right click the connection from the SQL Developer 
 Paste the following code:
 
 ```
-CREATE USER testuser IDENTIFIED BY oracle123
-
-   DEFAULT TABLESPACE USERS QUOTA UNLIMITED ON USERS;
+CREATE USER testuser IDENTIFIED BY oracle123 DEFAULT TABLESPACE USERS QUOTA UNLIMITED ON USERS;
 
 GRANT CREATE SESSION, CREATE VIEW, CREATE SEQUENCE,
    CREATE PROCEDURE, CREATE TABLE, CREATE TRIGGER,
@@ -110,6 +108,10 @@ Expected output inside he script output tab:
 
 Enter container's console:
 docker exec -it oracledb bash
+
+As system administrator:
+sqlplus sys/oracle123@localhost:1521/XEPDB1 as sysdba;
+grant create session to testuser;
 
 Enter db manager with sqlplus:
 sqlplus testuser/oracle123@localhost:1521/XEPDB1
