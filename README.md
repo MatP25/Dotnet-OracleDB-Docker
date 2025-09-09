@@ -22,6 +22,7 @@ After initialization you can run the script to change default passwords: ```dock
 
 #
 ## 1 - Create new connection as admin:
+
 IN ORACLE SQL DEVELOPER TOOL EXTENSION FOR VSCODE:
 
 - Connection type = Basic
@@ -34,6 +35,7 @@ IN ORACLE SQL DEVELOPER TOOL EXTENSION FOR VSCODE:
 - Password = same as the one used in docker command
 
 (test connection first)
+<img width="1247" height="523" alt="image" src="https://github.com/user-attachments/assets/29ffc075-b6b4-45c2-a703-993be96b899a" />
 
 #
 ## 2 - Create a new user
