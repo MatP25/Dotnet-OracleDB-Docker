@@ -1,0 +1,23 @@
+services:
+  oracle-db:
+    image: container-registry.oracle.com/database/express:latest
+    container_name: oracledb
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    environment:
+      - ORACLE_PDB=TestDB
+      - ORACLE_PWD=oracle123 # Set the Oracle SYS and SYSTEM user password
+    volumes:
+      - oracle-data:/opt/oracle/oradata # Path for persistent data
+      - oracle-backup:/opt/oracle/backup
+volumes:
+  oracle-data:
+  oracle-backup:
+
+# after initialization run: docker exec -it oracledb ./setPassword.sh oracle123
+# enter container with: docker exec -it oracledb bash
+# connect to sql as SYSTEM: sqlplus system/oracle123@localhost:1521/XEPDB1 
+# connect to sql as SYS sqlplus sys/oracle123@localhost:1521/XEPDB1 as sysdba
+
+# SYSTEM vs SYS: https://dba.stackexchange.com/questions/405/what-is-the-difference-between-sys-and-system-accounts-in-oracle-databases
