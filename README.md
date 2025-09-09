@@ -2,7 +2,7 @@
 
 [Docker image link](https://container-registry.oracle.com/ords/f?p=113:4:80650608053:::4:P4_REPOSITORY,AI_REPOSITORY,AI_REPOSITORY_NAME,P4_REPOSITORY_NAME,P4_EULA_ID,P4_BUSINESS_AREA_ID:803,803,Oracle%20Database%20Express%20Edition,Oracle%20Database%20Express%20Edition,1,0&cs=3C-amBK1Pj9DV4I8A-Y9haIqn2IdN8I_FZL9DOh_omzm78vINENGmeeM-VNAgdP3oGXnNzCiuPlL1OjjKtLuWww)
 
-## 0 - BUILD THE CONTAINER
+## 0 - Build the container
 ```docker compose up -d```
 
 After initialization you can run the script to change default passwords: ```docker exec -it oracledb ./setPassword.sh oracle123```
@@ -21,8 +21,8 @@ After initialization you can run the script to change default passwords: ```dock
 > https://www.oracle.com/tools/technologies/quickstart-dotnet-for-oracle-database.html#second-option-tab
 
 #
-1 - IN SQL DEVELOPER TOOL EXTENSION:
-Create new connection as admin:
+## 1 - Create new connection as admin:
+IN ORACLE SQL DEVELOPER TOOL EXTENSION FOR VSCODE:
 
 - Connection type = Basic
 - Hostname = localhost
@@ -36,7 +36,9 @@ Create new connection as admin:
 (test connection first)
 
 #
-2 - After creating the connection right click the connection from the SQL Developer extension tool and create a new SQL file
+## 2 - Create a new user
+
+After creating the connection right click the connection from the SQL Developer extension tool and create a new SQL file
 Paste the following code:
 
 ```
@@ -58,8 +60,8 @@ Expected output:
 This creates a new user called testuser with password oracle123 and grants it usage privileges on the database
 
 #
-3 - IN SQL DEVELOPER TOOL EXTENSION:
-Create a new connection as testuser
+## 3 - Create a new connection as testuser:
+IN ORACLE SQL DEVELOPER TOOL EXTENSION FOR VSCODE:
 
 - Connection type = Basic
 - Role = default
@@ -73,7 +75,7 @@ Create a new connection as testuser
 (test connection first)
 
 #
-4 - Creating a new TABLE
+## 4 - Create a new TABLE:
 After creating the connection right click the connection from the SQL Developer extension tool and create a new SQL file
 Paste the following code:
 
@@ -102,7 +104,7 @@ Expected output inside he script output tab:
 - Commit complete.
 
 #
-5 - Testing the user inside docker:
+## 5 - Testing the user inside docker:
 
 Enter container's console:
 docker exec -it oracledb bash
